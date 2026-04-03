@@ -1,4 +1,3 @@
-
 (function bootSequence() {
   const logEl = document.getElementById('boot-log');
   const fillEl = document.getElementById('boot-fill');
