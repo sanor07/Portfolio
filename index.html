@@ -3,108 +3,781 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanowar Hussain | Portfolio</title>
+  <title>Sanowar Hussain | Ethical Hacker & Penetration Tester</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
+  <!-- BOOT SCREEN -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <pre class="boot-ascii">
+  ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗
+  ██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗
+  ███████║███████║██║     █████╔╝ █████╗  ██████╔╝
+  ██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗
+  ██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║
+  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝</pre>
+      <div class="boot-log" id="boot-log"></div>
+      <div class="boot-progress-bar"><div class="boot-fill" id="boot-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- PARTICLE CANVAS -->
   <canvas id="particle-canvas"></canvas>
 
-  <header class="hero">
-    <h1>Sanowar Hussain</h1>
-    <p class="tagline">Penetration Tester  | Web Developer | Cyber Security Expert</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </header>
+  <!-- CURSOR -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursor-trail"></div>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a highly skilled Penetration Tester with extensive
-      experience in simulating cyber attacks to test network 
-      and system vulnerabilities. Expertise in identifying and 
-      exploiting weaknesses to strengthen security posture.
-      Proficient in using tools like Kali Linux, Nmap, and
-      Metasploit to conduct comprehensive penetration testing 
-      and vulnerability assessments. Proven track record of delivering
-      actionable insights to enhance security measures and protect against cyber threats.
-
-    </p>
-  </section>
-    <section id="education" class="section">
-  <h2>Education</h2>
-  <div class="edu-grid">
-    <div class="edu-card">Bar-Char Anchalik Jatiya Vidyalaya<br></div>
-    <div class="edu-card">Newton Academy, Kaplabari</div>
-    <div class="edu-card">Shri Ram College Of Engineering & Management</div>
-  </div>
-</section>
-  <section id="skills" class="section dark">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>HTML / CSS / JavaScript</li>
-      <li>C & C++ Programming</li>
-      <li>Internet Protocol Suite(TCP/IP)</li>
-      <li>Penetration</li>
-      <li>Web Designer</li>
-      <li>Cyber Security</li>
-      <li>Networking</li>
-      <li>Cryptography</li>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="nav-bracket">&lt;</span>
+      <span class="nav-name">SH</span>
+      <span class="nav-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" data-text="About">About</a></li>
+      <li><a href="#skills" data-text="Skills">Skills</a></li>
+      <li><a href="#projects" data-text="Projects">Projects</a></li>
+      <li><a href="#simulation" data-text="Sim">Simulation</a></li>
+      <li><a href="#terminal" data-text="Terminal">Terminal</a></li>
+      <li><a href="#contact" data-text="Contact">Contact</a></li>
     </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="status-text">SECURE CONNECTION</span>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-pre">
+        <span class="pre-bracket">[</span>
+        <span class="pre-text" id="hero-pre-text"></span>
+        <span class="pre-bracket">]</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="name-line">Sanowar</span>
+        <span class="name-line accent">Hussain</span>
+      </h1>
+      <div class="hero-tagline" id="hero-tagline"></div>
+      <p class="hero-sub">Ethical Hacker · Penetration Tester · Cybersecurity Enthusiast · Securing Digital Systems</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-folder-open"></i> View Projects
+        </a>
+        <a href="#terminal" class="btn btn-terminal">
+          <i class="fas fa-terminal"></i> Open Terminal
+        </a>
+        <a href="#simulation" class="btn btn-danger">
+          <i class="fas fa-skull-crossbones"></i> Hack Sim
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num" data-count="8">0</span><span class="hstat-label">Certs</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num" data-count="5">0</span><span class="hstat-label">Projects</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num" data-count="12">0</span><span class="hstat-label">Tools</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num" data-count="100">0</span><span class="hstat-label">% Ethical</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hex-grid" id="hex-grid"></div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
   </section>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3> Cybersecurity Trainee / Analyst(Practical Case Study)</h3>
-        <p> <ol>Investigated a real-world ransomware attack scenario where a critical
-            server file was encrypted.</ol>
-          <ol>Conducted threat assessment and analyzed attacker behavior to
- identify possible vulnerabilities.</ol>
-           <ol>Applied brute-force decryption techniques to recover data without
- paying ransom, simulating incident response best practices.</ol>
- Gained hands-on experience in malware analysis, cryptographic key
- testing, and risk mitigation strategies.
-          <ol>Reported findings to senior mentors, focusing on preventive measures
- and security hardening for future attacksics.</ol></p>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> ABOUT</div>
+      <h2 class="section-title">WHO AM I<span class="accent">?</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card glass-card">
+        <div class="about-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">SH</div>
+          <div class="avatar-status">● ONLINE</div>
+        </div>
+        <div class="about-info">
+          <div class="info-row"><span class="info-key">NAME</span><span class="info-val">Sanowar Hussain</span></div>
+          <div class="info-row"><span class="info-key">ROLE</span><span class="info-val accent">Penetration Tester</span></div>
+          <div class="info-row"><span class="info-key">BASE</span><span class="info-val">Guwahati, Assam</span></div>
+          <div class="info-row"><span class="info-key">STATUS</span><span class="info-val green-glow">Open to Opportunities</span></div>
+          <div class="info-row"><span class="info-key">SPECIALITY</span><span class="info-val">Ethical Hacking</span></div>
+        </div>
       </div>
-      <div class="card">
-        <h3> Responsive Web Design Developer freeCodeCamp 
-             Certification Project Work (2025)</h3>
-        <p>
-          <ol>I build a survey form to collect data from users.</ol>
-          <ol>I build a tribute page for a fictional character.</ol>
-          <ol>I build a technical documentation page to serve as instructions for a topic.</ol>
-          <ol>I build a product landing page to market a product.</ol>
-        </p>
+      <div class="about-text-block">
+        <p class="about-para">I am a highly skilled <span class="highlight">Penetration Tester</span> with extensive experience in simulating cyber attacks to test network and system vulnerabilities. My expertise lies in identifying and exploiting weaknesses — then fortifying them.</p>
+        <p class="about-para">Proficient in <span class="highlight">Kali Linux, Nmap, Metasploit, and Wireshark</span>, I conduct comprehensive penetration testing and vulnerability assessments, delivering actionable insights that shield organizations from real-world threats.</p>
+        <p class="about-para">My dual background in <span class="highlight">Cybersecurity and Web Development</span> gives me a unique 360° view of digital attack surfaces — understanding both how systems are built and exactly how they can be broken.</p>
+        <div class="about-badges">
+          <span class="badge"><i class="fas fa-shield-alt"></i> Ethical Hacker</span>
+          <span class="badge"><i class="fas fa-bug"></i> Bug Hunter</span>
+          <span class="badge"><i class="fas fa-network-wired"></i> Network Analyst</span>
+          <span class="badge"><i class="fas fa-code"></i> Web Developer</span>
+        </div>
+      </div>
+      <div class="edu-block">
+        <h3 class="block-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-school">Shri Ram College Of Engineering &amp; Management</div>
+              <div class="tl-desc">B.Tech in Computer Science — Core focus on Networking &amp; Security</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-school">Newton Academy, Kaplabari</div>
+              <div class="tl-desc">Higher Secondary — Science Stream</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-school">Bar-Char Anchalik Jatiya Vidyalaya</div>
+              <div class="tl-desc">Secondary Education</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <section id="certifications" class="section dark">
-    <h2>Certifications</h2>
-    <div class="cert-grid">
-      <div class="cert-card">Cyber Security Virtual Internship</div>
-      <div class="cert-card">SQL Injection Attacks</div>
-      <div class="cert-card">Shields Up</div>
-      <div class="cert-card">Cyber Security Workshop</div>
-      <div class="cert-card">Introduction to CIP</div>
-      <div class="cert-card">Ethical Hacking Essentials</div>
-      <div class="cert-card">Cyber Security Professional</div>
-      <div class="cert-card">Responsive Web Design</div>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> SKILLS</div>
+      <h2 class="section-title">TECH ARSENAL<span class="accent">_</span></h2>
+    </div>
+    <div class="skills-tabs">
+      <button class="skill-tab active" data-cat="security">Security</button>
+      <button class="skill-tab" data-cat="dev">Development</button>
+      <button class="skill-tab" data-cat="tools">Tools</button>
+      <button class="skill-tab" data-cat="network">Networking</button>
+    </div>
+    <div class="skills-content" id="skills-content">
+      <div class="skill-category active" data-cat="security">
+        <div class="skill-bars">
+          <div class="sbar-item" data-pct="90"><div class="sbar-label"><i class="fas fa-skull-crossbones"></i> Penetration Testing</div><div class="sbar-track"><div class="sbar-fill" style="--pct:90%"></div></div><span class="sbar-pct">90%</span></div>
+          <div class="sbar-item" data-pct="85"><div class="sbar-label"><i class="fas fa-bug"></i> Vulnerability Assessment</div><div class="sbar-track"><div class="sbar-fill" style="--pct:85%"></div></div><span class="sbar-pct">85%</span></div>
+          <div class="sbar-item" data-pct="80"><div class="sbar-label"><i class="fas fa-lock"></i> Cryptography</div><div class="sbar-track"><div class="sbar-fill" style="--pct:80%"></div></div><span class="sbar-pct">80%</span></div>
+          <div class="sbar-item" data-pct="85"><div class="sbar-label"><i class="fas fa-shield-virus"></i> Malware Analysis</div><div class="sbar-track"><div class="sbar-fill" style="--pct:85%"></div></div><span class="sbar-pct">85%</span></div>
+          <div class="sbar-item" data-pct="88"><div class="sbar-label"><i class="fas fa-database"></i> SQL Injection</div><div class="sbar-track"><div class="sbar-fill" style="--pct:88%"></div></div><span class="sbar-pct">88%</span></div>
+          <div class="sbar-item" data-pct="82"><div class="sbar-label"><i class="fas fa-user-secret"></i> Ethical Hacking</div><div class="sbar-track"><div class="sbar-fill" style="--pct:82%"></div></div><span class="sbar-pct">82%</span></div>
+        </div>
+      </div>
+      <div class="skill-category" data-cat="dev">
+        <div class="skill-bars">
+          <div class="sbar-item" data-pct="88"><div class="sbar-label"><i class="fab fa-html5"></i> HTML5 / CSS3</div><div class="sbar-track"><div class="sbar-fill" style="--pct:88%"></div></div><span class="sbar-pct">88%</span></div>
+          <div class="sbar-item" data-pct="75"><div class="sbar-label"><i class="fab fa-js"></i> JavaScript</div><div class="sbar-track"><div class="sbar-fill" style="--pct:75%"></div></div><span class="sbar-pct">75%</span></div>
+          <div class="sbar-item" data-pct="78"><div class="sbar-label"><i class="fas fa-code"></i> C / C++</div><div class="sbar-track"><div class="sbar-fill" style="--pct:78%"></div></div><span class="sbar-pct">78%</span></div>
+          <div class="sbar-item" data-pct="80"><div class="sbar-label"><i class="fas fa-palette"></i> Responsive Design</div><div class="sbar-track"><div class="sbar-fill" style="--pct:80%"></div></div><span class="sbar-pct">80%</span></div>
+        </div>
+      </div>
+      <div class="skill-category" data-cat="tools">
+        <div class="tools-grid">
+          <div class="tool-badge"><i class="fas fa-terminal"></i><span>Kali Linux</span><div class="tool-bar" style="--pct:92%"></div></div>
+          <div class="tool-badge"><i class="fas fa-search"></i><span>Nmap</span><div class="tool-bar" style="--pct:90%"></div></div>
+          <div class="tool-badge"><i class="fas fa-bomb"></i><span>Metasploit</span><div class="tool-bar" style="--pct:85%"></div></div>
+          <div class="tool-badge"><i class="fas fa-satellite-dish"></i><span>Wireshark</span><div class="tool-bar" style="--pct:82%"></div></div>
+          <div class="tool-badge"><i class="fas fa-folder-open"></i><span>Dirb</span><div class="tool-bar" style="--pct:80%"></div></div>
+          <div class="tool-badge"><i class="fas fa-server"></i><span>VirtualBox</span><div class="tool-bar" style="--pct:88%"></div></div>
+          <div class="tool-badge"><i class="fab fa-linux"></i><span>Linux CLI</span><div class="tool-bar" style="--pct:90%"></div></div>
+          <div class="tool-badge"><i class="fab fa-github"></i><span>Git/GitHub</span><div class="tool-bar" style="--pct:78%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category" data-cat="network">
+        <div class="skill-bars">
+          <div class="sbar-item" data-pct="88"><div class="sbar-label"><i class="fas fa-network-wired"></i> TCP/IP Protocol Suite</div><div class="sbar-track"><div class="sbar-fill" style="--pct:88%"></div></div><span class="sbar-pct">88%</span></div>
+          <div class="sbar-item" data-pct="82"><div class="sbar-label"><i class="fas fa-project-diagram"></i> Network Architecture</div><div class="sbar-track"><div class="sbar-fill" style="--pct:82%"></div></div><span class="sbar-pct">82%</span></div>
+          <div class="sbar-item" data-pct="85"><div class="sbar-label"><i class="fas fa-eye"></i> Packet Analysis</div><div class="sbar-track"><div class="sbar-fill" style="--pct:85%"></div></div><span class="sbar-pct">85%</span></div>
+          <div class="sbar-item" data-pct="80"><div class="sbar-label"><i class="fas fa-shield-alt"></i> Firewall &amp; IDS/IPS</div><div class="sbar-track"><div class="sbar-fill" style="--pct:80%"></div></div><span class="sbar-pct">80%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="certs-strip">
+      <h3 class="block-title"><i class="fas fa-certificate"></i> Certifications</h3>
+      <div class="certs-scroll">
+        <div class="certs-track">
+          <div class="cert-chip"><i class="fas fa-shield-alt"></i> Cyber Security Virtual Internship</div>
+          <div class="cert-chip"><i class="fas fa-database"></i> SQL Injection Attacks</div>
+          <div class="cert-chip"><i class="fas fa-lock"></i> Shields Up</div>
+          <div class="cert-chip"><i class="fas fa-users"></i> Cyber Security Workshop</div>
+          <div class="cert-chip"><i class="fas fa-info-circle"></i> Introduction to CIP</div>
+          <div class="cert-chip"><i class="fas fa-user-secret"></i> Ethical Hacking Essentials</div>
+          <div class="cert-chip"><i class="fas fa-briefcase"></i> Cyber Security Professional</div>
+          <div class="cert-chip"><i class="fab fa-html5"></i> Responsive Web Design</div>
+          <!-- Duplicate for infinite scroll -->
+          <div class="cert-chip"><i class="fas fa-shield-alt"></i> Cyber Security Virtual Internship</div>
+          <div class="cert-chip"><i class="fas fa-database"></i> SQL Injection Attacks</div>
+          <div class="cert-chip"><i class="fas fa-lock"></i> Shields Up</div>
+          <div class="cert-chip"><i class="fas fa-users"></i> Cyber Security Workshop</div>
+          <div class="cert-chip"><i class="fas fa-info-circle"></i> Introduction to CIP</div>
+          <div class="cert-chip"><i class="fas fa-user-secret"></i> Ethical Hacking Essentials</div>
+          <div class="cert-chip"><i class="fas fa-briefcase"></i> Cyber Security Professional</div>
+          <div class="cert-chip"><i class="fab fa-html5"></i> Responsive Web Design</div>
+        </div>
+      </div>
     </div>
   </section>
-  <section id="contact" class="section dark">
-    <h2>Contact</h2>
-    <p>📧 <a href="mailto:sanor9518@gmail.com">sanor9518@gmail.com</a></p>
-    <p>🌐 <a href="https://www.linkedin.com/in/sanowar-hussain-676481302/" target="_blank">Linkedin</a></p>
-    <p>📝 <a href="https://github.com/sanor07" target="_blank">GitHub</a></p>
-    <p>Guwahati,Assam</p>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section projects-section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> PROJECTS</div>
+      <h2 class="section-title">MISSION<span class="accent"> LOG</span></h2>
+      <p class="section-sub">Every project is an operation. Every vulnerability, a target.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="proj-filter">
+      <button class="filter-btn active" data-filter="all">ALL OPS</button>
+      <button class="filter-btn" data-filter="cyber">CYBERSECURITY</button>
+      <button class="filter-btn" data-filter="web">WEB DEV</button>
+      <button class="filter-btn" data-filter="data">DATA/ANALYSIS</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- PROJECT 1: Ransomware Case Study -->
+      <div class="proj-card featured" data-cat="cyber">
+        <div class="proj-glow"></div>
+        <div class="proj-header">
+          <div class="proj-icon-wrap"><i class="fas fa-skull-crossbones"></i></div>
+          <div class="proj-meta">
+            <span class="proj-cat-tag cyber-tag">CYBERSECURITY</span>
+            <span class="proj-tag">FEATURED</span>
+          </div>
+        </div>
+        <h3 class="proj-title">Ransomware Incident Response & Case Study</h3>
+        <p class="proj-desc">Led a comprehensive investigation into a real-world ransomware attack scenario where a critical server's files were encrypted. Conducted full threat assessment, attacker behavior mapping, and applied cryptographic brute-force decryption techniques to recover data without paying ransom.</p>
+        <div class="proj-details-list">
+          <div class="pdl-item"><i class="fas fa-crosshairs"></i> <strong>Role:</strong> Cybersecurity Trainee / Incident Response Analyst</div>
+          <div class="pdl-item"><i class="fas fa-bullseye"></i> <strong>Impact:</strong> Full data recovery without ransom payment. Security hardening report delivered to mentors.</div>
+        </div>
+        <div class="proj-tech">
+          <span class="tech-badge kali">Kali Linux</span>
+          <span class="tech-badge nmap">Nmap</span>
+          <span class="tech-badge meta">Metasploit</span>
+          <span class="tech-badge crypto">Cryptography</span>
+          <span class="tech-badge mal">Malware Analysis</span>
+        </div>
+        <div class="proj-achievements">
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Identified encryption algorithm used by attacker</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Applied brute-force key testing across 10,000+ combinations</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Mapped full incident response lifecycle (Identify → Contain → Eradicate → Recover)</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Delivered structured security hardening report</div>
+        </div>
+        <div class="proj-expandable" id="proj-expand-1">
+          <div class="expand-content">
+            <h4>Attack Simulation Lifecycle</h4>
+            <div class="lifecycle-steps">
+              <div class="lc-step"><span class="lc-num">01</span><span class="lc-text">Recon — Mapped the target system, enumerated open ports &amp; services</span></div>
+              <div class="lc-step"><span class="lc-num">02</span><span class="lc-text">Exploitation — Identified ransomware entry vector via phishing simulation</span></div>
+              <div class="lc-step"><span class="lc-num">03</span><span class="lc-text">Analysis — Reverse-engineered encrypted file headers for algorithm fingerprinting</span></div>
+              <div class="lc-step"><span class="lc-num">04</span><span class="lc-text">Recovery — Brute-forced decryption keys; successfully recovered 100% of files</span></div>
+              <div class="lc-step"><span class="lc-num">05</span><span class="lc-text">Report — Submitted mitigation strategies: backup policies, patch management, EDR deployment</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="proj-expand-btn" onclick="toggleExpand('proj-expand-1', this)">
+          <i class="fas fa-chevron-down"></i> VIEW FULL OPERATION
+        </button>
+      </div>
+
+      <!-- PROJECT 2: Cybersecurity Internship -->
+      <div class="proj-card" data-cat="cyber">
+        <div class="proj-glow"></div>
+        <div class="proj-header">
+          <div class="proj-icon-wrap"><i class="fas fa-crosshairs"></i></div>
+          <div class="proj-meta">
+            <span class="proj-cat-tag cyber-tag">CYBERSECURITY</span>
+            <span class="proj-tag">INTERNSHIP</span>
+          </div>
+        </div>
+        <h3 class="proj-title">Penetration Testing — Cybersecurity Internship</h3>
+        <p class="proj-desc">Conducted real-world penetration testing tasks during a virtual cybersecurity internship. Performed port scanning, directory brute-force enumeration, and compiled structured vulnerability reports on testphp.vulnweb.com — a legal practice target.</p>
+        <div class="proj-details-list">
+          <div class="pdl-item"><i class="fas fa-crosshairs"></i> <strong>Role:</strong> Penetration Tester / Security Analyst</div>
+          <div class="pdl-item"><i class="fas fa-bullseye"></i> <strong>Impact:</strong> Discovered 7+ exploitable misconfigurations; report used for internal training.</div>
+        </div>
+        <div class="proj-tech">
+          <span class="tech-badge nmap">Nmap</span>
+          <span class="tech-badge dirb">Dirb</span>
+          <span class="tech-badge kali">Kali Linux</span>
+          <span class="tech-badge">Burp Suite</span>
+          <span class="tech-badge">Report Writing</span>
+        </div>
+        <div class="proj-achievements">
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Port scan revealed 12 open ports including misconfigured FTP</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Directory brute-force exposed /admin, /backup, /config endpoints</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Identified SQL injection vulnerabilities in web forms</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Produced CVSS-scored vulnerability report following OWASP methodology</div>
+        </div>
+        <div class="proj-expandable" id="proj-expand-2">
+          <div class="expand-content">
+            <h4>Methodology: Recon → Exploit → Report</h4>
+            <div class="lifecycle-steps">
+              <div class="lc-step"><span class="lc-num">01</span><span class="lc-text">Reconnaissance — nmap -sV -sC testphp.vulnweb.com — identified 12 open ports</span></div>
+              <div class="lc-step"><span class="lc-num">02</span><span class="lc-text">Enumeration — dirb http://testphp.vulnweb.com — exposed hidden directories</span></div>
+              <div class="lc-step"><span class="lc-num">03</span><span class="lc-text">Exploitation — Tested SQLi, XSS, and path traversal on vulnerable endpoints</span></div>
+              <div class="lc-step"><span class="lc-num">04</span><span class="lc-text">Documentation — CVSS-scored report with remediation steps per vulnerability</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="proj-expand-btn" onclick="toggleExpand('proj-expand-2', this)">
+          <i class="fas fa-chevron-down"></i> VIEW FULL OPERATION
+        </button>
+      </div>
+
+      <!-- PROJECT 3: Virtual Lab -->
+      <div class="proj-card" data-cat="cyber">
+        <div class="proj-glow"></div>
+        <div class="proj-header">
+          <div class="proj-icon-wrap"><i class="fas fa-server"></i></div>
+          <div class="proj-meta">
+            <span class="proj-cat-tag cyber-tag">CYBERSECURITY</span>
+            <span class="proj-tag">LAB</span>
+          </div>
+        </div>
+        <h3 class="proj-title">Virtual Hacking Lab — Kali Linux Environment</h3>
+        <p class="proj-desc">Built a fully operational penetration testing lab using VirtualBox and Kali Linux. Resolved complex virtualization issues including full-screen display, Guest Additions installation, and cross-VM file sharing. Used the environment for live Wireshark packet analysis and Nmap scanning.</p>
+        <div class="proj-details-list">
+          <div class="pdl-item"><i class="fas fa-crosshairs"></i> <strong>Role:</strong> Lab Architect &amp; Security Researcher</div>
+          <div class="pdl-item"><i class="fas fa-bullseye"></i> <strong>Impact:</strong> Created a permanent, isolated security testing environment for ongoing skill development.</div>
+        </div>
+        <div class="proj-tech">
+          <span class="tech-badge kali">Kali Linux</span>
+          <span class="tech-badge">VirtualBox</span>
+          <span class="tech-badge wire">Wireshark</span>
+          <span class="tech-badge nmap">Nmap</span>
+          <span class="tech-badge">Linux CLI</span>
+        </div>
+        <div class="proj-achievements">
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Installed &amp; configured Kali Linux with Guest Additions</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Set up shared folders and clipboard between host and VM</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Captured and analyzed live network packets with Wireshark</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Performed internal network scans and port mapping with Nmap</div>
+        </div>
+        <div class="proj-expandable" id="proj-expand-3">
+          <div class="expand-content">
+            <h4>Lab Setup Pipeline</h4>
+            <div class="lifecycle-steps">
+              <div class="lc-step"><span class="lc-num">01</span><span class="lc-text">VirtualBox installation on Windows host with NAT &amp; Host-Only Adapter config</span></div>
+              <div class="lc-step"><span class="lc-num">02</span><span class="lc-text">Kali Linux ISO boot — full disk encryption + LVM setup</span></div>
+              <div class="lc-step"><span class="lc-num">03</span><span class="lc-text">Guest Additions — fixed screen resolution, clipboard, drag-drop, shared folders</span></div>
+              <div class="lc-step"><span class="lc-num">04</span><span class="lc-text">Live lab exercises — Wireshark capture, Nmap LAN scan, credential testing</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="proj-expand-btn" onclick="toggleExpand('proj-expand-3', this)">
+          <i class="fas fa-chevron-down"></i> VIEW FULL OPERATION
+        </button>
+      </div>
+
+      <!-- PROJECT 4: freeCodeCamp Web Dev -->
+      <div class="proj-card featured-web" data-cat="web">
+        <div class="proj-glow green"></div>
+        <div class="proj-header">
+          <div class="proj-icon-wrap green"><i class="fas fa-code"></i></div>
+          <div class="proj-meta">
+            <span class="proj-cat-tag web-tag">WEB DEV</span>
+            <span class="proj-tag green-tag">CERTIFIED</span>
+          </div>
+        </div>
+        <h3 class="proj-title">Responsive Web Design — freeCodeCamp Certification Suite (2025)</h3>
+        <p class="proj-desc">Completed the full freeCodeCamp Responsive Web Design curriculum, producing 4 certified projects demonstrating mastery of HTML5, CSS3, accessibility, and modern responsive design principles.</p>
+        <div class="proj-tech">
+          <span class="tech-badge html">HTML5</span>
+          <span class="tech-badge css">CSS3</span>
+          <span class="tech-badge flex">Flexbox</span>
+          <span class="tech-badge grid">CSS Grid</span>
+          <span class="tech-badge a11y">Accessibility</span>
+        </div>
+        <div class="sub-projects">
+          <div class="sub-proj">
+            <div class="sub-icon"><i class="fas fa-clipboard-list"></i></div>
+            <div class="sub-info">
+              <h4>Survey Form</h4>
+              <p>Accessible HTML form with validation, radio/checkbox groups, dropdowns, and real-time UX feedback. Designed for data collection with strict semantic HTML.</p>
+              <div class="sub-tags"><span>Forms</span><span>Validation</span><span>a11y</span></div>
+            </div>
+          </div>
+          <div class="sub-proj">
+            <div class="sub-icon"><i class="fas fa-star"></i></div>
+            <div class="sub-info">
+              <h4>Tribute Page</h4>
+              <p>Visually striking tribute page for a fictional character. Featured responsive image layouts, timeline design, and editorial typography.</p>
+              <div class="sub-tags"><span>Layout</span><span>Typography</span><span>Responsive</span></div>
+            </div>
+          </div>
+          <div class="sub-proj">
+            <div class="sub-icon"><i class="fas fa-book"></i></div>
+            <div class="sub-info">
+              <h4>Technical Documentation Page</h4>
+              <p>Multi-section documentation site with sticky sidebar navigation, code blocks, and structured technical content. Passes all accessibility checks.</p>
+              <div class="sub-tags"><span>Nav</span><span>Code Blocks</span><span>UX</span></div>
+            </div>
+          </div>
+          <div class="sub-proj">
+            <div class="sub-icon"><i class="fas fa-rocket"></i></div>
+            <div class="sub-info">
+              <h4>Product Landing Page</h4>
+              <p>Full marketing landing page with hero, feature section, pricing table, video embed, and responsive navigation. Mobile-first design.</p>
+              <div class="sub-tags"><span>Marketing</span><span>Video</span><span>Mobile-First</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-achievements">
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Achieved freeCodeCamp Responsive Web Design Certification</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> All 4 projects pass 100% of automated test suites</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Mobile-first, accessible across all screen sizes</div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5: Email Collection -->
+      <div class="proj-card" data-cat="data">
+        <div class="proj-glow blue"></div>
+        <div class="proj-header">
+          <div class="proj-icon-wrap blue"><i class="fas fa-envelope-open-text"></i></div>
+          <div class="proj-meta">
+            <span class="proj-cat-tag data-tag">DATA / ANALYSIS</span>
+            <span class="proj-tag blue-tag">OSINT</span>
+          </div>
+        </div>
+        <h3 class="proj-title">Email Intelligence Collection — OSINT Campaign</h3>
+        <p class="proj-desc">Designed and executed a structured OSINT (Open Source Intelligence) email collection operation, gathering and validating .eml files from legal public sources. Achieved 50+ unique, verified emails per day with strict deduplication and accuracy protocols.</p>
+        <div class="proj-details-list">
+          <div class="pdl-item"><i class="fas fa-crosshairs"></i> <strong>Role:</strong> OSINT Analyst / Data Collection Specialist</div>
+          <div class="pdl-item"><i class="fas fa-bullseye"></i> <strong>Impact:</strong> Delivered clean, verified dataset for research purposes. 98% accuracy rate on collected emails.</div>
+        </div>
+        <div class="proj-tech">
+          <span class="tech-badge">OSINT</span>
+          <span class="tech-badge">Email Headers</span>
+          <span class="tech-badge">Data Validation</span>
+          <span class="tech-badge">Deduplication</span>
+          <span class="tech-badge">Linux CLI</span>
+        </div>
+        <div class="proj-achievements">
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Collected 50+ unique .eml files per day consistently</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Implemented deduplication pipeline — zero duplicate submissions</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Verified email headers for authenticity and completeness</div>
+          <div class="ach-item"><i class="fas fa-check-circle"></i> Documented collection methodology for reproducibility</div>
+        </div>
+        <div class="proj-expandable" id="proj-expand-5">
+          <div class="expand-content">
+            <h4>Collection Workflow</h4>
+            <div class="lifecycle-steps">
+              <div class="lc-step"><span class="lc-num">01</span><span class="lc-text">Source Identification — Legal public email repositories and open mailing lists</span></div>
+              <div class="lc-step"><span class="lc-num">02</span><span class="lc-text">Extraction — Parsed .eml files using CLI tools; extracted headers, body, metadata</span></div>
+              <div class="lc-step"><span class="lc-num">03</span><span class="lc-text">Validation — Cross-checked for completeness, uniqueness, and format compliance</span></div>
+              <div class="lc-step"><span class="lc-num">04</span><span class="lc-text">Delivery — Organized into structured datasets; submitted with accuracy report</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="proj-expand-btn" onclick="toggleExpand('proj-expand-5', this)">
+          <i class="fas fa-chevron-down"></i> VIEW FULL OPERATION
+        </button>
+      </div>
+
+    </div>
   </section>
 
+  <!-- ATTACK SIMULATION -->
+  <section id="simulation" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> SIMULATION</div>
+      <h2 class="section-title">HACK <span class="accent">SIM</span></h2>
+      <p class="section-sub">⚠️ This is a demonstration-only simulation. No real systems are targeted.</p>
+    </div>
+    <div class="sim-wrapper">
+      <div class="sim-control-panel">
+        <div class="sim-target-select">
+          <label>TARGET:</label>
+          <select id="sim-target">
+            <option value="192.168.1.1">192.168.1.1 (Router)</option>
+            <option value="10.0.0.5">10.0.0.5 (Web Server)</option>
+            <option value="172.16.0.10">172.16.0.10 (Database)</option>
+          </select>
+        </div>
+        <div class="sim-attack-select">
+          <label>ATTACK TYPE:</label>
+          <select id="sim-attack">
+            <option value="pentest">Full Penetration Test</option>
+            <option value="sqli">SQL Injection</option>
+            <option value="portscan">Port Scan</option>
+            <option value="bruteforce">Brute Force</option>
+          </select>
+        </div>
+        <button class="btn btn-danger sim-start-btn" id="sim-start-btn" onclick="startSimulation()">
+          <i class="fas fa-play"></i> INITIATE ATTACK
+        </button>
+        <button class="btn btn-ghost sim-reset-btn" onclick="resetSimulation()">
+          <i class="fas fa-redo"></i> RESET
+        </button>
+      </div>
+
+      <div class="sim-display">
+        <div class="sim-stages" id="sim-stages">
+          <div class="sim-stage" data-stage="1">
+            <div class="stage-icon"><i class="fas fa-search"></i></div>
+            <div class="stage-name">RECON</div>
+            <div class="stage-bar"><div class="stage-fill"></div></div>
+          </div>
+          <div class="sim-stage" data-stage="2">
+            <div class="stage-icon"><i class="fas fa-list"></i></div>
+            <div class="stage-name">ENUM</div>
+            <div class="stage-bar"><div class="stage-fill"></div></div>
+          </div>
+          <div class="sim-stage" data-stage="3">
+            <div class="stage-icon"><i class="fas fa-bomb"></i></div>
+            <div class="stage-name">EXPLOIT</div>
+            <div class="stage-bar"><div class="stage-fill"></div></div>
+          </div>
+          <div class="sim-stage" data-stage="4">
+            <div class="stage-icon"><i class="fas fa-arrow-up"></i></div>
+            <div class="stage-name">PRIV ESC</div>
+            <div class="stage-bar"><div class="stage-fill"></div></div>
+          </div>
+          <div class="sim-stage" data-stage="5">
+            <div class="stage-icon"><i class="fas fa-crown"></i></div>
+            <div class="stage-name">ACCESS</div>
+            <div class="stage-bar"><div class="stage-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="sim-log-panel">
+          <div class="sim-log-header">
+            <span class="log-dot red"></span>
+            <span class="log-dot yellow"></span>
+            <span class="log-dot green"></span>
+            <span class="log-title">ATTACK LOG — LIVE FEED</span>
+          </div>
+          <div class="sim-log-body" id="sim-log-body">
+            <div class="log-line muted">[ SYSTEM ] Waiting for operator command...</div>
+          </div>
+        </div>
+
+        <div class="sim-progress-overall">
+          <div class="spo-label">OPERATION PROGRESS</div>
+          <div class="spo-bar"><div class="spo-fill" id="spo-fill"></div></div>
+          <div class="spo-pct" id="spo-pct">0%</div>
+        </div>
+
+        <div class="sim-result" id="sim-result" style="display:none">
+          <div class="result-icon"><i class="fas fa-crown"></i></div>
+          <div class="result-text">ACCESS GRANTED</div>
+          <div class="result-sub">Root privileges obtained. System compromised. (Simulation only)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMINAL -->
+  <section id="terminal" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> TERMINAL</div>
+      <h2 class="section-title">SHELL <span class="accent">ACCESS</span></h2>
+    </div>
+    <div class="terminal-wrap">
+      <div class="term-titlebar">
+        <div class="term-dots">
+          <span class="tdot red"></span>
+          <span class="tdot yellow"></span>
+          <span class="tdot green"></span>
+        </div>
+        <span class="term-title">sanowar@kali:~$</span>
+        <span class="term-hint">Type <code>help</code> to get started</span>
+      </div>
+      <div class="term-body" id="term-body" onclick="document.getElementById('term-input').focus()">
+        <div class="term-welcome">
+          <pre class="term-banner">
+   _____ _   _
+  / ____| | | |
+ | (___ | |_| |
+  \___ \|  _  |
+  ____) | | | |
+ |_____/|_| |_| PORTFOLIO SHELL v2.0
+          </pre>
+          <div class="tw-line">Welcome, operator. You have gained shell access to Sanowar's portfolio.</div>
+          <div class="tw-line">Type <span class="cmd-ref">help</span> to see available commands.</div>
+        </div>
+        <div id="term-output"></div>
+        <div class="term-input-line">
+          <span class="term-prompt">sanowar@kali:~$</span>
+          <input type="text" id="term-input" class="term-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="type a command..." />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> EXPERIENCE</div>
+      <h2 class="section-title">FIELD <span class="accent">OPS</span></h2>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-title">Cybersecurity Virtual Internship</h3>
+              <div class="exp-org">Security Training Program</div>
+            </div>
+            <span class="exp-date">2024</span>
+          </div>
+          <p class="exp-desc">Conducted penetration testing tasks on legal targets. Performed port scanning with Nmap, directory enumeration with Dirb, and produced structured vulnerability reports. Gained hands-on experience with real-world attack methodologies.</p>
+          <div class="exp-skills"><span>Nmap</span><span>Dirb</span><span>Kali Linux</span><span>Report Writing</span><span>OWASP</span></div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-title">Ransomware Incident Response — Case Study</h3>
+              <div class="exp-org">Independent Research</div>
+            </div>
+            <span class="exp-date">2024</span>
+          </div>
+          <p class="exp-desc">Investigated simulated ransomware attack. Applied cryptographic brute-force decryption and malware analysis techniques to recover encrypted server data. Presented mitigation strategies to senior mentors.</p>
+          <div class="exp-skills"><span>Malware Analysis</span><span>Cryptography</span><span>Incident Response</span><span>Metasploit</span></div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-card glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-title">Web Development — freeCodeCamp Certification</h3>
+              <div class="exp-org">freeCodeCamp</div>
+            </div>
+            <span class="exp-date">2025</span>
+          </div>
+          <p class="exp-desc">Completed the Responsive Web Design curriculum, building 4 certified projects covering survey forms, tribute pages, documentation sites, and product landing pages. All projects achieved 100% test suite pass rates.</p>
+          <div class="exp-skills"><span>HTML5</span><span>CSS3</span><span>Responsive</span><span>Flexbox</span><span>Grid</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <div class="section-label"><span>//</span> CONTACT</div>
+      <h2 class="section-title">ESTABLISH <span class="accent">LINK</span></h2>
+      <p class="section-sub">Ready to collaborate on security projects or web development. Let's connect.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="contact-info-cards">
+          <a href="mailto:sanor9518@gmail.com" class="cinfo-card">
+            <div class="cinfo-icon"><i class="fas fa-envelope"></i></div>
+            <div class="cinfo-text">
+              <span class="cinfo-label">EMAIL</span>
+              <span class="cinfo-val">sanor9518@gmail.com</span>
+            </div>
+            <i class="fas fa-arrow-right cinfo-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sano18/" target="_blank" class="cinfo-card">
+            <div class="cinfo-icon"><i class="fab fa-linkedin"></i></div>
+            <div class="cinfo-text">
+              <span class="cinfo-label">LINKEDIN</span>
+              <span class="cinfo-val">linkedin.com/in/sano18</span>
+            </div>
+            <i class="fas fa-arrow-right cinfo-arrow"></i>
+          </a>
+          <a href="https://github.com/sanor07" target="_blank" class="cinfo-card">
+            <div class="cinfo-icon"><i class="fab fa-github"></i></div>
+            <div class="cinfo-text">
+              <span class="cinfo-label">GITHUB</span>
+              <span class="cinfo-val">github.com/sanor07</span>
+            </div>
+            <i class="fas fa-arrow-right cinfo-arrow"></i>
+          </a>
+          <div class="cinfo-card no-link">
+            <div class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="cinfo-text">
+              <span class="cinfo-label">LOCATION</span>
+              <span class="cinfo-val">Guwahati, Assam, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="glass-card contact-message-box">
+          <h3><i class="fas fa-satellite-dish"></i> Send a Transmission</h3>
+          <div class="cf-group">
+            <label>NAME</label>
+            <input type="text" class="cf-input" placeholder="Your name" />
+          </div>
+          <div class="cf-group">
+            <label>EMAIL</label>
+            <input type="email" class="cf-input" placeholder="your@email.com" />
+          </div>
+          <div class="cf-group">
+            <label>MESSAGE</label>
+            <textarea class="cf-input cf-textarea" placeholder="Your message..."></textarea>
+          </div>
+          <button class="btn btn-primary w-full" onclick="handleFormSubmit(this)">
+            <i class="fas fa-paper-plane"></i> TRANSMIT MESSAGE
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="services-strip">
+      <h3 class="block-title"><i class="fas fa-concierge-bell"></i> Services Offered</h3>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-shield-alt"></i><span>Penetration Testing</span></div>
+        <div class="service-card"><i class="fas fa-bug"></i><span>Vulnerability Assessment</span></div>
+        <div class="service-card"><i class="fas fa-code"></i><span>Web Development</span></div>
+        <div class="service-card"><i class="fas fa-file-alt"></i><span>Security Reports</span></div>
+        <div class="service-card"><i class="fas fa-graduation-cap"></i><span>Security Consulting</span></div>
+        <div class="service-card"><i class="fas fa-network-wired"></i><span>Network Analysis</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Sanowar Hussain. All rights reserved.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">&lt;SH /&gt;</div>
+      <div class="footer-copy">© 2025 Sanowar Hussain. Securing the digital frontier.</div>
+      <div class="footer-links">
+        <a href="https://github.com/sanor07" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/sano18/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:sanor9518@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
   </footer>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
