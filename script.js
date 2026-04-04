@@ -1,7 +1,13 @@
 (function bootSequence() {
   const logEl = document.getElementById('boot-log');
-  const fillEl = document.getElementById('boot-fill');
-  const bootScreen = document.getElementById('boot-screen');
+const fillEl = document.getElementById('boot-fill');
+const bootScreen = document.getElementById('boot-screen');
+
+if (!logEl || !fillEl || !bootScreen) {
+  console.warn("Boot elements missing");
+  initApp(); // fallback
+  return;
+}
 
   const logs = [
     { t: 80,  cls: 'bl-dim',  txt: '[ BIOS ] Initializing system...' },
