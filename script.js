@@ -33,8 +33,12 @@
     setTimeout(() => {
       bootScreen.style.opacity = '0';
       setTimeout(() => {
-        bootScreen.style.display = 'none';
-        initApp();
+       bootScreen.style.display = 'none';
+        try {
+            initApp();
+        } catch (e) {
+         console.error("Init error:", e);
+       }
       }, 500);
     }, 300);
   }, 2100);
@@ -42,17 +46,21 @@
 
 /* ── APP INIT ── */
 function initApp() {
-  initParticles();
-  initCursor();
-  initNavbar();
-  initHero();
-  initSkillTabs();
-  initScrollReveal();
-  initSkillBars();
-  initCounters();
-  initProjectFilter();
-  initTerminal();
-  initHexGrid();
+  const safe = fn => {
+    try { fn(); } catch (e) { console.error(fn.name, e); }
+  };
+
+  safe(initParticles);
+  safe(initCursor);
+  safe(initNavbar);
+  safe(initHero);
+  safe(initSkillTabs);
+  safe(initScrollReveal);
+  safe(initSkillBars);
+  safe(initCounters);
+  safe(initProjectFilter);
+  safe(initTerminal);
+  safe(initHexGrid);
 }
 
 /* ── PARTICLE CANVAS ── */
@@ -165,7 +173,7 @@ function initNavbar() {
   const nav = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const links = document.querySelector('.nav-links');
-
+  if (!nav || !hamburger || !links) return;
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
@@ -183,7 +191,7 @@ function initNavbar() {
 function initHero() {
   const preEl = document.getElementById('hero-pre-text');
   const tagEl = document.getElementById('hero-tagline');
-
+  if (!preEl || !tagEl) return;
   typeText(preEl, 'INITIALIZING PORTFOLIO...', 60, () => {
     setTimeout(() => typeText(preEl, 'ACCESS GRANTED — WELCOME', 60), 300);
   });
@@ -214,6 +222,7 @@ function initHero() {
 }
 
 function typeText(el, text, speed, cb) {
+  if (!el) return;
   let i = 0;
   el.textContent = '';
   const iv = setInterval(() => {
@@ -436,6 +445,7 @@ function startSimulation() {
   const target = document.getElementById('sim-target').value;
   const attackType = document.getElementById('sim-attack').value;
   const logBody = document.getElementById('sim-log-body');
+  if (!logBody) return;
   const script = simScripts[attackType] || simScripts.pentest;
   const totalDuration = script[script.length - 1].t + 600;
 
@@ -515,6 +525,7 @@ function resetSimulation() {
 function initTerminal() {
   const input = document.getElementById('term-input');
   const output = document.getElementById('term-output');
+  if (!input || !output) return;
   let history = [];
   let histIdx = -1;
 
