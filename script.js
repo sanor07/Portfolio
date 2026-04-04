@@ -5,8 +5,14 @@ const bootScreen = document.getElementById('boot-screen');
 
 if (!logEl || !fillEl || !bootScreen) {
   console.warn("Boot elements missing");
-  initApp(); // fallback
+
+  // ✅ FORCE HIDE LOADING SCREEN
+  const boot = document.getElementById('boot-screen');
+  if (boot) boot.style.display = 'none';
+
+  initApp();
   return;
+}
 }
 
   const logs = [
